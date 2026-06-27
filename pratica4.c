@@ -6,7 +6,7 @@ int main(){
     int num;
     int *vet = (int*) malloc(4 * sizeof(int));
     int *vetCopia = (int*) malloc(4 * sizeof(int));
-    int numMenor = 0;
+    int numMaior = 0;
     int qtd = 0;
     printf("digite os números");
     for(int i = 0; i < 4; i++){
@@ -16,11 +16,11 @@ int main(){
       vetCopia[i] = num;
     }
     for(int i = 0; i < 4 - 1; i++){
-        for(int j = 0; j - 1 - i; j++){
+        for(int j = 0; j < 4 - 1 - i; j++){
             if(vetCopia[j] > vetCopia[j+1]){
-                numMenor = vetCopia[j];
+                numMaior = vetCopia[j];
                 vetCopia[j] = vetCopia[j+1];
-                vetCopia[j+1] = numMenor;
+                vetCopia[j+1] = numMaior;
             }
         }
 
