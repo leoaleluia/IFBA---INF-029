@@ -44,7 +44,7 @@ void inserirNoInicio(no **lista, int num){
 
 }
 
-void excluirElementoSimples(No **lista, int valorParaRemover) {
+void excluirElementoSimples(no **lista, int valorParaRemover) {
     // Caso base: Se a lista estiver vazia, não há o que excluir
     if (*lista == NULL) {
         return;
@@ -53,8 +53,8 @@ void excluirElementoSimples(No **lista, int valorParaRemover) {
     // ========================================================
     // CASO ESPECIAL: O elemento a ser removido é o PRIMEIRO
     // ========================================================
-    if ((*lista)->conteudo == valorParaRemover) {
-        No *aux = *lista;       // 1. Guarda o endereço do primeiro nó
+    if ((*lista)->num == valorParaRemover) {
+        no *aux = *lista;       // 1. Guarda o endereço do primeiro nó
         *lista = (*lista)->prox; // 2. O início da main pula para o segundo nó
         free(aux);              // 3. Apaga o antigo primeiro da memória
         return;                 // Fim da função
