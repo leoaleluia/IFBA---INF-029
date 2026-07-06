@@ -41,7 +41,6 @@ void inserirNoInicio(no **lista, int num){
 
     novo->prox = *lista;
     *lista = novo;
-
 }
 
 void excluirElementoSimples(no **lista, int valorParaRemover) {
