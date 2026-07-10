@@ -26,5 +26,8 @@ void inserirComCabecote(No *lista, int num){
     novo = criarNo(num);
 
     novo->prox = lista->prox;
+    //Supondo que o num do prox seja 10, ele aponta para o valor que há no num do lista->prox,
     lista->prox = novo;
+    //e esse prox recebe o conteudo do prox novo
 }
+

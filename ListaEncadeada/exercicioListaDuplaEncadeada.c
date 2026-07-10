@@ -55,3 +55,37 @@ void listarTrazPraFrente(no *lista){
         }
         
     }
+
+    void inserirInicio(no **lista, int num){
+        no *novo;
+        novo = criarNo(num);
+
+        novo->prox = *lista;
+        novo->ant = NULL;
+        if(*lista = NULL){
+            (*lista)->ant = NULL;
+        }
+        *lista = novo;
+
+    }
+
+
+    void inserirMeio(no **lista, int num){
+        no *novo;
+        novo = criarNo(num);
+
+        if((*lista)->num > num){
+            novo->prox = *lista;
+            novo->ant = NULL;
+            (*lista)->ant = novo;
+            *lista = novo; 
+        }
+        no *i;
+        i = *lista;
+        while(i->prox !=NULL && i->prox->num < num){
+            i = i->prox;
+        }
+        novo->prox = i->prox;
+        novo->ant = i;
+        i->prox = novo;
+    }
