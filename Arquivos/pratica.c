@@ -5,7 +5,7 @@
 
 
 int main(){
-
+    
     FILE *f1;
     FILE *f2;
     char mundo[] = "olá mundo";

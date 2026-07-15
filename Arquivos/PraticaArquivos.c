@@ -45,7 +45,7 @@ int main(){
     }*/
     
 
-FILE *mesmoF;
+/*FILE *mesmoF;
 mesmoF = fopen("arquivo.txt", "w");
 if(mesmoF == NULL){
     printf("Erro de abertura");
@@ -57,7 +57,17 @@ int retorno = fputs(c, mesmoF);
 if(retorno == EOF){
     printf("erro");
 }
-fclose(mesmoF);
 
+fclose(mesmoF);*/
+
+FILE *mesmoFf;
+mesmoFf = fopen("arquivo.txt", "a");
+
+fprintf(mesmoFf, "teste\n");
+fputs("teste2\n", mesmoFf);
+fclose(mesmoFf);
     
+
+
+
 }
