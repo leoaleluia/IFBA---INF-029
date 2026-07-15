@@ -14,8 +14,7 @@ int main(){
         printf("Erro na abertura ");
         system("pause");
         exit(1);
-    }
-
+    }   
     char texto[20] = "Meu programa em 2";
     unsigned int i;
 
@@ -44,5 +43,21 @@ int main(){
         c = fgetc(mesmoF);
         printf("%c", c);
     }*/
+    
+
+FILE *mesmoF;
+mesmoF = fopen("arquivo.txt", "w");
+if(mesmoF == NULL){
+    printf("Erro de abertura");
+    system("pause");
+    return(1);
+}
+char c[20] = "meu programa em C";
+int retorno = fputs(c, mesmoF);
+if(retorno == EOF){
+    printf("erro");
+}
+fclose(mesmoF);
+
     
 }
