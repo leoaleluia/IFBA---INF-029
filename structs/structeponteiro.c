@@ -20,7 +20,7 @@ void exibirAlunos(alunos *lista, int qtd){
     printf("%d, %s\n", lista[i].nota, lista[i].nome);
    }
 }
-
+    
 int main(){
     int qtd = 4;
     alunos *lista = (alunos *) malloc (qtd * sizeof(alunos));

@@ -35,6 +35,17 @@ void buscaNum(no *lista, int num){
     return NULL;
 }
 
+no* criarNo(int valor){
+    no *novo = (no *) malloc(sizeof(no));
+    if(novo == NULL){
+        printf("Memória não alocada");
+        exit(1);
+    }
+    novo->num = valor;
+    novo->prox = NULL;
+    return novo;
+}
+
 void inserirNoInicio(no **lista, int num){
     no *novo;
     novo = criarNo(num);
