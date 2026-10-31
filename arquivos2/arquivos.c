@@ -16,8 +16,8 @@ int qtd = 0;
 int cadastrarPessoas(){
     if(qtd < TAM){
         pessoas p;
-        printf("Digite seu nome");
-        fgets(p.nome, 50, stdin);
+        printf("Digite seu nome: ");
+        scanf(" %[^\n]", p.nome);
         printf("Digite a idade");
         scanf("%d", &p.idade);
         p.chave = qtd + 1;
@@ -38,9 +38,70 @@ void mostrarLista(){
     }
 }
 
+void salvarListaEmArquivo(){
+    FILE *arq = fopen("lista.txt", "w");
+    int i;
+    if(arq){
+        fprintf(arq, "%d\n", qtd);
+        for(i = 0; i < qtd; i++){
+            fprintf(arq, "%s", listaPessoas[i].nome);
+            fprintf(arq, "%d\n", listaPessoas[i].idade);
+            fprintf(arq, "%d\n", listaPessoas[i].chave);
+        }
+        fclose(arq);
+    }else{
+        printf("erro na abertura do documento");
+    }
+}
+
+void lerArquivo(){
+    FILE *arq = fopen("lista.txt", "r");
+    int i;
+    if(arq){
+        fscanf(arq, "%d\n", &qtd);
+        for(i = 0; i < qtd; i++){
+            pessoas p;
+            fgets(p.nome, 50, arq);
+            fscanf(arq, "%d\n", &p.idade);
+            fscanf(arq, "%d\n", &p.chave);
+            listaPessoas[i] = p;
+        }
+        fclose(arq);
+    }else{
+        printf("erro ao tentar fazer leitura");
+    }
+
+}
+
 
 int main(){
-    cadastrarPessoas();
-    mostrarLista();
+
+    int ctr = 0;
+    int op;
+
+    while(ctr == 0){
+        printf("Escolha uma das opções Cadastrar: 1; Salvar Lista: 2; Imprimir Lista: 3; ler arquivo: 4 fechar: 5");
+        scanf("%d", &op);
+        switch (op){
+            case 1:
+                cadastrarPessoas();
+                break;
+            case 2:
+                salvarListaEmArquivo();
+                break;
+            case 3:
+                mostrarLista();
+                break;
+            case 4:
+                lerArquivo();
+                break;
+            case 5:
+                ctr = 1;
+                break;
+            default:
+                printf("Opção errada");
+                break;
+        }
+    }
 }
 
