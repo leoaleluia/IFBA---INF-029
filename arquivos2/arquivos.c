@@ -20,7 +20,7 @@ int cadastrarPessoas(){
         scanf(" %[^\n]", p.nome);
         printf("Digite a idade");
         scanf("%d", &p.idade);
-        p.chave = qtd + 1;
+        p.chave = qtd + 2;
         listaPessoas[qtd] = p;
         qtd++;
         return 1;
@@ -34,7 +34,7 @@ int cadastrarPessoas(){
 void mostrarLista(){
     int i;
     for(i = 0; i < TAM; i++){
-        printf("%d %s %d \n", listaPessoas[i].idade, listaPessoas[i].nome, listaPessoas[i].chave);
+        printf("%s %d %d \n", listaPessoas[i].nome, listaPessoas[i].idade, listaPessoas[i].chave);
     }
 }
 
@@ -44,7 +44,7 @@ void salvarListaEmArquivo(){
     if(arq){
         fprintf(arq, "%d\n", qtd);
         for(i = 0; i < qtd; i++){
-            fprintf(arq, "%s", listaPessoas[i].nome);
+            fprintf(arq, "%s\n", listaPessoas[i].nome);
             fprintf(arq, "%d\n", listaPessoas[i].idade);
             fprintf(arq, "%d\n", listaPessoas[i].chave);
         }
