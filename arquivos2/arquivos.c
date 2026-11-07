@@ -20,7 +20,7 @@ int cadastrarPessoas(){
         scanf(" %[^\n]", p.nome);
         printf("Digite a idade");
         scanf("%d", &p.idade);
-        p.chave = qtd + 2;
+        p.chave = qtd + 1;
         listaPessoas[qtd] = p;
         qtd++;
         return 1;
